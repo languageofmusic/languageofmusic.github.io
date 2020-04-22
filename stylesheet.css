@@ -1,4 +1,87 @@
-body {
+
+html, body {
   background-color: #ffffff;
   font-family: Verdana, Geneva, sans-serif;
+  overflow-x: hidden;
+  
 }
+#header {
+  text-align: center;
+  background-color: #e3e8e8;
+  margin-bottom: 6px;
+  margin-left: -10em;
+  padding-left: 10em;
+  padding-bottom: 8px;
+}
+.header-p {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+h1, h2 {
+  font-family: 'PT sans';
+}
+h1 {
+  margin-bottom: 0px;
+}
+#menu-left {
+  position: absolute;
+  width: 220px;
+  height: 200px;
+  overflow: auto;
+  border: solid 1px #d1d1d1;
+  border-radius: 10px;
+  padding: 6px;
+}
+button {
+  text-align: left;
+  font-weight: bold;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 1px;
+  border-radius: 6px;
+}
+button:hover {
+  background-color: #ddd
+}
+.menu-button {
+  width: 100%;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  font-size: 16px;
+  height: 40px;
+  background-color: #ffffff;
+}
+.sub-menu-button {
+  width: 190px;
+  height: 35px;
+  font-size: 14px;
+}
+.dropdown-content {
+  display: none;
+  position: relative;
+  width: 190px;
+  margin-left: 30px;
+}
+.dropdown-content a {
+  color: #545454;
+  text-decoration: none;
+  padding: 3px;
+  display: block;
+}
+.show {display:block;}
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+ /* Content */
+
+.content {
+  
+  
+  margin-left: 240px;
+  padding-left: 20px;
+  border: none;
+}
+
