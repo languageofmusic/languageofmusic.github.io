@@ -25,6 +25,9 @@ h1, h2 {
 h1 {
   margin-bottom: 0px;
 }
+p {
+  font-family: 'Work Sans';
+}
 #menu-left {
   position: absolute;
   width: 220px;
