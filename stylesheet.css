@@ -3,15 +3,16 @@ html, body {
   background-color: #ffffff;
   font-family: Verdana, Geneva, sans-serif;
   overflow-x: hidden;
-  
+  width: 100%;
+  padding: 0px;
+  margin: 0;
 }
 #header {
   text-align: center;
   background-color: #e3e8e8;
   margin-bottom: 6px;
-  margin-left: -10em;
-  padding-left: 10em;
   padding-bottom: 8px;
+  width: 100%;
 }
 .header-p {
   width: 70%;
@@ -32,6 +33,7 @@ h1 {
   border: solid 1px #d1d1d1;
   border-radius: 10px;
   padding: 6px;
+  margin-left: 10px;
 }
 button {
   text-align: left;
@@ -78,10 +80,7 @@ button:hover {
  /* Content */
 
 .content {
-  
-  
   margin-left: 240px;
   padding-left: 20px;
   border: none;
 }
-
