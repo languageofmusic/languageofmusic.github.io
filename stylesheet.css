@@ -94,6 +94,10 @@ a:hover {
 
 .content {
   margin-left: 290px;
-  padding-left: 20px;
+  padding-left: 30px;
   border: none;
+  margin-right: 200px
+}
+.content h2 {
+  margin-left: 30px;
 }
