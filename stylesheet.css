@@ -12,6 +12,7 @@ html, body {
   background-color: #e3e8e8;
   margin-bottom: 6px;
   padding-bottom: 8px;
+  margin-top: 0px;
   width: 100%;
 }
 .header-p {
@@ -30,10 +31,10 @@ p {
 }
 #menu-left {
   position: absolute;
-  width: 220px;
-  height: 200px;
+  width: 270px;
+  height: 100%;
   overflow: auto;
-  border: solid 1px #d1d1d1;
+  border: solid 2px #d1d1d1;
   border-radius: 10px;
   padding: 6px;
   margin-left: 10px;
@@ -47,7 +48,7 @@ button {
   border-radius: 6px;
 }
 button:hover {
-  background-color: #ddd
+  background-color: #52ba52;
 }
 .menu-button {
   width: 100%;
@@ -58,24 +59,33 @@ button:hover {
   background-color: #ffffff;
 }
 .sub-menu-button {
-  width: 190px;
+  width: 240px;
   height: 35px;
   font-size: 14px;
+  margin-left: 30px;
+}
+.sub-menu-button-full {
+  width: 255px;
+  height: 35px;
+  font-size: 14px;
+  margin-left: 15px;
 }
 .dropdown-content {
   display: none;
   position: relative;
-  width: 190px;
-  margin-left: 30px;
 }
 .dropdown-content a {
-  color: #545454;
+  color: #000000;
   text-decoration: none;
   padding: 3px;
   display: block;
 }
+a:hover {
+  text-decoration: underline;
+}
 .show {display:block;}
 .fa-caret-down {
+  color: #000000;
   float: right;
   padding-right: 8px;
 }
@@ -83,7 +93,7 @@ button:hover {
  /* Content */
 
 .content {
-  margin-left: 240px;
+  margin-left: 290px;
   padding-left: 20px;
   border: none;
 }
