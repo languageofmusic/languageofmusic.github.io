@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://music-encoding.org/schema/4.0.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/4.0.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
+    <meiHead>
+        <fileDesc>
+            <titleStmt>
+                <title></title>
+                <respStmt />
+            </titleStmt>
+            <pubStmt><availability>
+                    <distributor>Copyright © </distributor>
+                </availability>
+            </pubStmt>
+        </fileDesc>
+        <encodingDesc xml:id="encodingdesc-0000000686502376">
+            <appInfo xml:id="appinfo-0000001652844413">
+                <application xml:id="application-0000001691361377" isodate="2020-05-01T19:32:32" version="2.7.0-dev-d730a3f-dirty">
+                    <name xml:id="name-0000001615111135">Verovio</name>
+                    <p xml:id="p-0000000615351121">Transcoded from MusicXML</p>
+                </application>
+            </appInfo>
+        </encodingDesc>
+    </meiHead>
+    <music>
+        <body>
+            <mdiv xml:id="mdiv-0000000082793388">
+                <score xml:id="score-0000001388186714">
+                    <scoreDef xml:id="scoredef-0000000661692375">
+                        <staffGrp xml:id="staffgrp-0000000883641314">
+                            <staffGrp xml:id="staffgrp-0000000391968898" symbol="brace">
+                                <staffDef xml:id="staffdef-0000000065559248" n="1" lines="5" ppq="256" clef.shape="G" clef.line="2" key.mode="major" key.sig="0" meter.count="4" meter.unit="4">
+                                    <label xml:id="label-0000000327013593">Whole Notes</label>
+                                    <labelAbbr xml:id="labelAbbr-0000001408999235">Pno.</labelAbbr>
+                                </staffDef>
+                            </staffGrp>
+                        </staffGrp>
+                    </scoreDef>
+                    <section xml:id="section-0000000240008057">
+                        <pb xml:id="pb-0000001544807216" />
+                        <pb xml:id="pb-0000000216961486" />
+                        <measure xml:id="measure-0000000965334451" n="1">
+                            <staff xml:id="staff-0000000878801870" n="1">
+                                <layer xml:id="layer-0000000728098617" n="1">
+                                    <note xml:id="note-0000001285381763" dur.ppq="1024" dur="1" oct="5" pname="g" color="#000000" />
+                                </layer>
+                                <layer xml:id="layer-0000001470067909" n="2">
+                                    <note xml:id="note-0000001719845202" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                    <note xml:id="note-0000000919714654" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                    <note xml:id="note-0000002049948598" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                    <note xml:id="note-0000000290862915" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                </layer>
+                            </staff>
+                        </measure>
+                        <measure xml:id="measure-0000001600661591" right="end" n="2">
+                            <staff xml:id="staff-0000001391048570" n="1">
+                                <layer xml:id="layer-0000000604421260" n="1">
+                                    <note xml:id="note-0000001844632914" dur.ppq="1024" dur="1" oct="5" pname="g" color="#000000" />
+                                </layer>
+                                <layer xml:id="layer-0000000345149775" n="2">
+                                    <note xml:id="note-0000001939944136" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                    <note xml:id="note-0000000000312424" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                    <note xml:id="note-0000000380084522" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                    <note xml:id="note-0000000722145384" dur.ppq="256" dur="4" oct="4" pname="c" color="#000000" stem.dir="down" />
+                                </layer>
+                            </staff>
+                        </measure>
+                    </section>
+                </score>
+            </mdiv>
+        </body>
+    </music>
+</mei>
