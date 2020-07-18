@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Note guessing game</title>
+    
+    <style>
+      html {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+      input[type=button] {
+        background-color: white;
+        border: solid 2px;
+        border-color: #606060;
+        padding: 5px 5px 5px 5px;
+        background-color: #F4F4F4;
+      }
+      input[type=button]:hover {
+        background-color: #52ba52;
+        border-color: #1D5B00;
+      }
+      select {
+        font-size: 16px;
+        padding: 5px;
+        background-color: #F4F4F4;;
+        border-color: #606060;
+      }
+      .left-button {
+        border-radius: 8px;
+        margin: 4px;
+        font-size: 20px;
+      }
+      .number-button {
+        height: 33px;
+        width: 33px;
+        border-radius: 50%;
+        margin-bottom: 2px;
+        font-size: 16px;
+      }
+      #major-scale-game {
+        width: 700px;
+        height: 300px;
+        border: solid 1px #b9b9b9;
+        margin-bottom: 15px;
+        padding: 5px;
+        background: rgb(68,154,238);
+        background: linear-gradient(0deg, rgba(68,154,238,1) 0%, rgba(119,181,255,1) 26%, rgba(185,243,255,1) 100%);
+      }
+      #game-left {
+        width: 300px;
+        float: left;
+        border: 1px;
+      }
+      #guess-buttons {
+        margin-left: 300px;
+        width: 100px;
+        border: 1px;
+      }
+      .resultParas {
+        float: right;
+        width: 250px;
+        border: 1px;
+        font-size: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .lastResult {
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #changeKey {
+        margin-bottom: 10px;
+        margin-left: auto;
+        font-weight: bold;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Note guessing game</h1>
+    <h2>How to play:</h2>
+    <p><strong>Step 1:</strong><br>Click "Play Scale", to familiarize yourself with the sound of the scale. 
+      You will here notes 1 to 8 of a major scale (8 is the same as 1, just octave higher)</p>
+      <p>
+      <strong>Step 2:</strong><br>Click "Play Random Note" to hear a random note between 1 and 8 from the scale you just heard.</p><p>
+      <strong>Step 3:</strong><br>Guess which note you just heard by clicking the numbers. If you get it right, click "New Random Note".
+        If you get it wrong, you can click "Play Random Note" to hear the same note again, and make another guess.</p><p>
+        Have fun!
+    </p>
+<div id="major-scale-game">  
+<div id="game-left">   
+<div id="changeKey">
+<form>
+Change Key:
+<select id="key">
+  <option>C Major</option>
+  <option>E Major</option>
+  <option>Ab Major</option>
+</select>
+</form>
+</div>
+    <div id="play-scale">    
+      <input class="left-button" type="button" value="Play Scale" onclick="playScale()">
+    </div>
+    <div id="play-random">
+   <input class="left-button" type="button" value="Play Random Note" onclick="playRandom()">
+    </div>
+    <div id="new-random">    
+      <input class="left-button" type="button" value="New Random Note" onclick="resetGame()">
+    </div>
+</div> 
+  <div class="resultParas">
+    <p class="guesses"></p>
+    <p class="lastResult"></p>
+    <p class="lowOrHi"></p>
+  </div>
+  <div id="guess-buttons">
+   <input class="number-button" type="button" value="8" onclick="guessEight()" class="guessSubmit"><br>
+   <input class="number-button" type="button" value="7" onclick="guessSeven()" class="guessSubmit"><br>
+    <audio id="B4" src="samples/B4.mp3"></audio>
+   <input class="number-button" type="button" value="6" onclick="guessSix()" class="guessSubmit"><br>
+    <audio id="A4" src="samples/A4.mp3"></audio>
+   <input class="number-button" type="button" value="5" onclick="guessFive()" class="guessSubmit"><br>
+    <audio id="G4" src="samples/G4.mp3"></audio>
+   <input class="number-button" type="button" value="4" onclick="guessFour()" class="guessSubmit"><br>
+    <audio id="F4" src="samples/F4.mp3"></audio>
+   <input class="number-button" type="button" value="3" onclick="guessThree()" class="guessSubmit"><br>
+   <audio id="E4" src="samples/E4.mp3"></audio>
+   <input class="number-button" type="button" value="2" onclick="guessTwo()" class="guessSubmit"><br>
+    <audio id="D4" src="samples/D4.mp3"></audio>
+   <input class="number-button" type="button" value="1" onclick="guessOne()" class="guessSubmit">
+    <audio id="C4" src="samples/C4.mp3"></audio>
+    <audio id="C5" src="samples/C5.mp3"></audio>
+    <audio id="Gb4" src="samples/Gb4.mp3"></audio>
+    <audio id="Ab4" src="samples/Ab4.mp3"></audio>
+    <audio id="Db5" src="samples/Db5.mp3"></audio>
+    <audio id="Eb5" src="samples/Eb5.mp3"></audio>
+    <audio id="E5" src="samples/E5.mp3"></audio>
+    <audio id="Ab3" src="samples/Ab3.mp3"></audio>
+    <audio id="Bb3" src="samples/Bb3.mp3"></audio>
+    <audio id="Db4" src="samples/Db4.mp3"></audio>
+    <audio id="Eb4" src="samples/Eb4.mp3"></audio>
+    <audio id="c-major" src="../audio/Cmajor.mp3"></audio>
+    <audio id="e-major" src="../audio/Emajor.mp3"></audio>
+    <audio id="ab-major" src="../audio/Abmajor.mp3"></audio>
+
+  </div>
+       
+
+    <script>
+      let randomNumber = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+      const guesses = document.querySelector('.guesses');
+      const lastResult = document.querySelector('.lastResult');
+      const lowOrHi = document.querySelector('.lowOrHi');
+      const guessSubmit = document.querySelector('.guessSubmit');
+      const guessField = document.querySelector('.guessField');
+      let userGuess;
+      let guessCount = 1;
+      let resetButton;
+      let currentKey = document.getElementById("key").value; 
+      
+
+      function guessOne() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("C4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("E4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Ab3");
+        audio.play();
+        }
+        userGuess = 1;
+        checkGuess();
+      }
+      function guessTwo() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("D4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Gb4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Bb3");
+        audio.play();
+        }
+        userGuess = 2;
+        checkGuess();
+      }
+      function guessThree() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("E4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Ab4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("C4");
+        audio.play();
+        }
+        userGuess = 3;
+        checkGuess();
+      }
+      function guessFour() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("F4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("A4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Db4");
+        audio.play();
+        }
+        userGuess = 4;
+        checkGuess();
+      }
+      function guessFive() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("G4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("B4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Eb4");
+        audio.play();
+        }
+        userGuess = 5;
+        checkGuess();
+      }
+      function guessSix() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("A4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Db5");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("F4");
+        audio.play();
+        }
+        userGuess = 6;
+        checkGuess();
+      }
+      function guessSeven() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("B4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Eb5");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("G4");
+        audio.play();
+        }
+        userGuess = 7;
+        checkGuess();
+      }
+      function guessEight() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("C5");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("E5");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Ab4");
+        audio.play();
+        }
+        userGuess = 8;
+        checkGuess();
+      }
+
+      function playRandomOne() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("C4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("E4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Ab3");
+        audio.play();
+        }
+      }
+      function playRandomTwo() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("D4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Gb4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Bb3");
+        audio.play();
+        }
+      }
+      function playRandomThree() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("E4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Ab4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("C4");
+        audio.play();
+        }
+        userGuess = 3;
+      }
+      function playRandomFour() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("F4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("A4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Db4");
+        audio.play();
+        }
+      }
+      function playRandomFive() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("G4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("B4");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Eb4");
+        audio.play();
+        }
+      }
+      function playRandomSix() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("A4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Db5");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("F4");
+        audio.play();
+        }
+      }
+      function playRandomSeven() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("B4");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("Eb5");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("G4");
+        audio.play();
+        }
+      }
+      function playRandomEight() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("C5");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("E5");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("Ab4");
+        audio.play();
+        }
+      }
+
+      function playRandom() {
+        if (randomNumber == 1) {
+          playRandomOne();
+        } else if (randomNumber == 2) {
+          playRandomTwo();
+        } else if (randomNumber == 3) {
+          playRandomThree();
+        } else if (randomNumber == 4) {
+          playRandomFour();
+        } else if (randomNumber == 5) {
+          playRandomFive();
+        } else if (randomNumber == 6) {
+          playRandomSix();
+        } else if (randomNumber == 7) {
+          playRandomSeven();
+        } else if (randomNumber == 8) {
+          playRandomEight();
+        }
+      }
+
+
+      function playScale() {
+        currentKey = document.getElementById("key").value;
+        if (currentKey == 'C Major') {
+          var audio = document.getElementById("c-major");
+        audio.play();
+        } else if (currentKey == 'E Major') {
+          var audio = document.getElementById("e-major");
+        audio.play();
+        } else if (currentKey == 'Ab Major') {
+          var audio = document.getElementById("ab-major");
+        audio.play();
+        }
+      }
+
+      function checkGuess() {
+ 
+  if (userGuess === randomNumber) {
+    lastResult.textContent = 'Correct!';
+    lastResult.style.backgroundColor = 'rgba(36, 213, 1, 0.76)';
+    lowOrHi.textContent = '';
+    setGameOver();
+  } else if (guessCount === 10) {
+    lastResult.textContent = '!!!GAME OVER!!!';
+    setGameOver();
+  } else {
+    lastResult.textContent = 'Wrong!';
+    lastResult.style.backgroundColor = 'rgba(255, 35, 35, 0.76)';
+    if(userGuess < randomNumber) {
+      lowOrHi.textContent = 'Last guess was too low!';
+    } else if(userGuess > randomNumber) {
+      lowOrHi.textContent = 'Last guess was too high!';
+    }
+  }
+ 
+}
+
+
+function resetGame() {
+
+  lastResult.style.backgroundColor = 'white';
+
+  randomNumber = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+  playRandom();
+}
+    </script>
+    </div>
+  </body>
+</html>
