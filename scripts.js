@@ -1,4 +1,4 @@
-document.getElementsByTagName("h1")[0].style.fontSize = "80px";
+
 
 var dropdown = document.getElementsByClassName("menu-button");
 var i;
@@ -14,3 +14,4 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
