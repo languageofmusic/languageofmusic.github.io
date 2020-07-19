@@ -294,3 +294,36 @@ html, body {
     clear: both;
     margin-top: 50px;
   }
+
+/* small screens */
+
+  @media (max-width: 800px){
+    .content {
+      margin-left: 5px;
+      margin-top: 5px;
+      margin-bottom: 0px;
+      padding-left: 10px;
+      padding-top: 0px;
+      padding-bottom: 50px;
+      padding-right: 10px;
+      border: solid 2px #87a3c9;
+      border-radius: 10px;
+      margin-right: 5px;
+      background-color: #fcfcfc;
+    }
+    #menu-left {
+      position: relative;
+      margin: auto;
+      width: 90%;
+    }
+    img {
+      max-width: 80%;
+    }
+    #header-menu {
+      width: 90%;
+    }
+    .header-menu {
+      position: relative;
+      float: left;
+    }
+  }
