@@ -91,16 +91,16 @@ html, body {
     background-color: #ffffff;
   }
   .sub-menu-button {
-    width: 240px;
+    width: 94%;
     height: 35px;
     font-size: 14px;
-    margin-left: 30px;
+    margin-left: 6%;
   }
   .sub-menu-button-full {
-    width: 255px;
+    width: 97%;
     height: 35px;
     font-size: 14px;
-    margin-left: 15px;
+    margin-left: 3%;
     background-color: #d5dbee;
   }
   .dropdown-content {
